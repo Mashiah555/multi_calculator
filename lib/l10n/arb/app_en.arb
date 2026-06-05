@@ -1,0 +1,8 @@
+{
+    "@@locale": "en",
+    "@@comment": "flutter gen-l10n",
+    "placeholder": "--TBD--",
+    "@placeholder": {
+        "description": "Generic placeholder text for undefined or empty values"
+    }
+}
