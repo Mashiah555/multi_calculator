@@ -42,12 +42,18 @@ class MainScreen extends ConsumerWidget {
     // The screens for each tab.
     final List<Widget> screens = [
       const BasicCalculator(),
-      _PlaceholderScreen(title: l10n.placeholder, icon: Icons.account_balance),
+      const BasicCalculator(),
     ];
 
     return Scaffold(
       // The universal AppBar that stays consistent across all screens
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/settings'),
+            icon: const Icon(Icons.settings_rounded),
+          ),
+        ],
         centerTitle: true,
         title: InkWell(
           borderRadius: BorderRadius.circular(8.0),
@@ -88,37 +94,6 @@ class MainScreen extends ConsumerWidget {
       ),
       // Only the body changes, the AppBar remains fixed
       body: IndexedStack(index: currentIndex, children: screens),
-    );
-  }
-}
-
-// A temporary widget just so you have something nice to look at
-// before you build the real screens.
-class _PlaceholderScreen extends StatelessWidget {
-  final String title;
-  final IconData icon;
-
-  const _PlaceholderScreen({required this.title, required this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    // IMPORTANT: Removed the nested Scaffold's AppBar.
-    // You will need to remove the AppBars from EducationScreen, NotesScreen,
-    // and SettingsScreen as well to prevent them from stacking visually.
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 80, color: Theme.of(context).colorScheme.primary),
-            const SizedBox(height: 16),
-            Text(
-              title,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
