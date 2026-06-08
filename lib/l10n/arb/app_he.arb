@@ -1,5 +1,23 @@
 {
     "@@locale": "he",
     "@@comment": "flutter gen-l10n",
-    "placeholder": "--TBD_HE--"
+    "placeholder": "--TBD_HE--",
+    "settings": "הגדרות",
+    "themeMode": "מצב עיצוב",
+    "light": "בהיר",
+    "dark": "מוחשך",
+    "system": "הגדרות מערכת",
+    "language": "שפה",
+    "calculator": "מחשבון {adjective}",
+    "converter": "המרת {adjective}",
+    "basic": "פשוט",
+    "advanced": "מתקדם",
+    "length": "אורך",
+    "mass": "משקל",
+    "area": "שטח",
+    "volume": "נפח",
+    "time": "זמן",
+    "data": "דאטה",
+    "speed": "מהירות",
+    "temperature": "טמפרטורה"
 }

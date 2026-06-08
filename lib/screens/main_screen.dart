@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:multi_calculator/l10n/generated/l10n.dart';
 import 'package:multi_calculator/screens/calculators/basic_calculator.dart';
+import 'package:multi_calculator/screens/settings_screen.dart';
 import 'package:multi_calculator/widgets/menu_sheet.dart';
 
 class AppNavIndexNotifier extends Notifier<int> {
@@ -31,9 +32,9 @@ class MainScreen extends ConsumerWidget {
     String getCurrentTitle() {
       switch (currentIndex) {
         case 0:
-          return l10n.placeholder;
+          return l10n.calculator(l10n.basic);
         case 1:
-          return l10n.placeholder;
+          return l10n.calculator(l10n.advanced);
         default:
           return '';
       }
@@ -50,7 +51,10 @@ class MainScreen extends ConsumerWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () => Navigator.pushNamed(context, '/settings'),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SettingsScreen()),
+            ),
             icon: const Icon(Icons.settings_rounded),
           ),
         ],
@@ -64,8 +68,11 @@ class MainScreen extends ConsumerWidget {
               builder: (context) => MenuSheet(
                 theme: Theme.of(context).colorScheme,
                 items: <MenuItem>[
-                  MenuItem(id: 'basic', title: 'Basic Calculator'),
-                  MenuItem(id: 'advanced', title: 'Advanced Calculator'),
+                  MenuItem(id: 'basic', title: l10n.calculator(l10n.basic)),
+                  MenuItem(
+                    id: 'advanced',
+                    title: l10n.calculator(l10n.advanced),
+                  ),
                 ],
               ),
             );

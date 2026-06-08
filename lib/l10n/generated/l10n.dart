@@ -103,6 +103,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'--TBD--'**
   String get placeholder;
+
+  /// Settings screen title
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// Theme mode setting title
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Mode'**
+  String get themeMode;
+
+  /// Light option for the theme mode setting
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get light;
+
+  /// Dark option for the theme mode setting
+  ///
+  /// In en, this message translates to:
+  /// **'dark'**
+  String get dark;
+
+  /// Default system option for the theme mode setting
+  ///
+  /// In en, this message translates to:
+  /// **'As System'**
+  String get system;
+
+  /// Language setting title
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// The title and name of the different calculators
+  ///
+  /// In en, this message translates to:
+  /// **'{adjective} Calculator'**
+  String calculator(String adjective);
+
+  /// The title and name of the different converters
+  ///
+  /// In en, this message translates to:
+  /// **'{adjective} Converter'**
+  String converter(String adjective);
+
+  /// The adjective 'Basic'
+  ///
+  /// In en, this message translates to:
+  /// **'Basic'**
+  String get basic;
+
+  /// The adjective 'Advanced'
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced'**
+  String get advanced;
+
+  /// The adjective 'Length'
+  ///
+  /// In en, this message translates to:
+  /// **'Length'**
+  String get length;
+
+  /// The adjective 'Mass'
+  ///
+  /// In en, this message translates to:
+  /// **'Mass'**
+  String get mass;
+
+  /// The adjective 'Area'
+  ///
+  /// In en, this message translates to:
+  /// **'Area'**
+  String get area;
+
+  /// The adjective 'Volume'
+  ///
+  /// In en, this message translates to:
+  /// **'Volume'**
+  String get volume;
+
+  /// The adjective 'Time'
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get time;
+
+  /// The adjective 'Data'
+  ///
+  /// In en, this message translates to:
+  /// **'Data'**
+  String get data;
+
+  /// The adjective 'Speed'
+  ///
+  /// In en, this message translates to:
+  /// **'Speed'**
+  String get speed;
+
+  /// The adjective 'Temperature'
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature'**
+  String get temperature;
 }
 
 class _AppLocalizationsDelegate

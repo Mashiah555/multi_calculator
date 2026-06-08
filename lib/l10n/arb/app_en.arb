@@ -4,5 +4,91 @@
     "placeholder": "--TBD--",
     "@placeholder": {
         "description": "Generic placeholder text for undefined or empty values"
+    },
+    "settings": "Settings",
+    "@settings": {
+        "description": "Settings screen title"
+    },
+    "themeMode": "Theme Mode",
+    "@themeMode": {
+        "description": "Theme mode setting title"
+    },
+    "light": "Light",
+    "@light": {
+        "description": "Light option for the theme mode setting"
+    },
+    "dark": "dark",
+    "@dark": {
+        "description": "Dark option for the theme mode setting"
+    },
+    "system": "As System",
+    "@system": {
+        "description": "Default system option for the theme mode setting"
+    },
+    "language": "Language",
+    "@language": {
+        "description": "Language setting title"
+    },
+    "calculator": "{adjective} Calculator",
+    "@calculator": {
+        "description": "The title and name of the different calculators",
+        "placeholders": {
+            "adjective": {
+                "type": "String",
+                "example": "Basic / Advanced",
+                "description": "The adjective for the calculator type"
+            }
+        }
+    },
+    "converter": "{adjective} Converter",
+    "@converter": {
+        "description": "The title and name of the different converters",
+        "placeholders": {
+            "adjective": {
+                "type": "String",
+                "example": "Length / Temperature",
+                "description": "The adjective for the converter type"
+            }
+        }
+    },
+    "basic": "Basic",
+    "@basic": {
+        "description": "The adjective 'Basic'"
+    },
+    "advanced": "Advanced",
+    "@advanced": {
+        "description": "The adjective 'Advanced'"
+    },
+    "length": "Length",
+    "@length": {
+        "description": "The adjective 'Length'"
+    },
+    "mass": "Mass",
+    "@mass": {
+        "description": "The adjective 'Mass'"
+    },
+    "area": "Area",
+    "@area": {
+        "description": "The adjective 'Area'"
+    },
+    "volume": "Volume",
+    "@volume": {
+        "description": "The adjective 'Volume'"
+    },
+    "time": "Time",
+    "@time": {
+        "description": "The adjective 'Time'"
+    },
+    "data": "Data",
+    "@data": {
+        "description": "The adjective 'Data'"
+    },
+    "speed": "Speed",
+    "@speed": {
+        "description": "The adjective 'Speed'"
+    },
+    "temperature": "Temperature",
+    "@temperature": {
+        "description": "The adjective 'Temperature'"
     }
 }
