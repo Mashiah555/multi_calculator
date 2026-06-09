@@ -15,77 +15,64 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
   double _num = 0;
   bool _isOperationPressed = false;
   String _history = '';
-  String _currentCalculation = '';
-  bool _isResultShown = false;
+  String _displayedCalculation = '';
+  bool _isResultState = false;
 
   void _onNumberPressed(String number) {
     setState(() {
-      if (_input == '0' || _isOperationPressed || _isResultShown) {
+      if (_input == '0' || _isOperationPressed || _isResultState) {
         _input = number;
+        _displayedCalculation = number;
+        _result = number;
         _isOperationPressed = false;
 
-        if (_isResultShown) {
-          _result = '';
-          _currentCalculation = '';
+        if (_isResultState) {
           _operator = '';
           _num = 0;
         }
 
-        _isResultShown = false;
+        _isResultState = false;
       } else {
         _input += number;
       }
 
       if (_operator.isNotEmpty) {
-        _currentCalculation = '${_num.toString()} $_operator $_input';
+        _displayedCalculation = '${_num.toString()} $_operator $_input';
+        _result =
+            _calculateResult(num2: double.parse(number))?.toString() ?? 'Error';
       }
     });
   }
 
   void _onOperationPressed(String operation) {
     setState(() {
-      if (_isResultShown) {
-        _isResultShown = false;
-        _result = '';
-        _currentCalculation = '';
+      if (_isResultState) {
+        _isResultState = false;
+        _displayedCalculation = _result;
+        _input = _result;
       }
 
       _num = double.parse(_input);
       _operator = operation;
       _isOperationPressed = true;
 
-      _currentCalculation = '${_num.toString()} $operation';
+      _displayedCalculation = '${_num.toString()} $operation';
     });
   }
 
   void _onEqualsPressed() {
     setState(() {
       double num2 = double.parse(_input);
-      double result = 0;
       String fullCalculation = '$_num $_operator $num2';
+      final result = _calculateResult(num2: num2);
 
-      switch (_operator) {
-        case '+':
-          result = _num + num2;
-          break;
-        case '-':
-          result = _num - num2;
-          break;
-        case 'x':
-          result = _num * num2;
-          break;
-        case '/':
-          if (num2 != 0) {
-            result = _num / num2;
-          } else {
-            _result = 'Error';
-            _input = '0';
-            _history = '$fullCalculation = Error';
-            _currentCalculation = '';
-            _isResultShown = true;
-            return;
-          }
-          break;
+      if (result == null) {
+        _result = 'Error';
+        _input = '0';
+        _displayedCalculation = '0';
+        _history = '$fullCalculation = Error';
+        _isResultState = true;
+        return;
       }
 
       _result = (result == result.toInt())
@@ -94,20 +81,20 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
 
       _history = '$fullCalculation = $_result';
       _input = '0';
-      _currentCalculation = '';
+      _displayedCalculation = '';
       _operator = '';
-      _isResultShown = true;
+      _isResultState = true;
     });
   }
 
   void _onClearPressed() {
     setState(() {
       _input = '0';
+      _displayedCalculation = '0';
       _result = '';
       _operator = '';
       _num = 0;
-      _currentCalculation = '';
-      _isResultShown = false;
+      _isResultState = false;
     });
   }
 
@@ -127,6 +114,25 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
         _input += '.';
       }
     });
+  }
+
+  double? _calculateResult({required double num2}) {
+    switch (_operator) {
+      case '+':
+        return _num + num2;
+      case '-':
+        return _num - num2;
+      case 'x':
+        return _num * num2;
+      case '/':
+        if (num2 != 0) {
+          return _num / num2;
+        } else {
+          return null;
+        }
+      default:
+        return null;
+    }
   }
 
   Widget _buildButton({
@@ -161,12 +167,6 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    // TODO: implement initState
-  }
-
-  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
@@ -183,13 +183,15 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
         children: [
           Expanded(
             flex: 4,
+
+            // Display Container
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.all(24),
               margin: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: displayColor,
-                borderRadius: BorderRadius.circular(24),
+                borderRadius: BorderRadius.circular(18),
                 boxShadow: [
                   BoxShadow(
                     color: displayColor.withAlpha(25),
@@ -202,51 +204,44 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
+                  // History Text
                   if (_history.isNotEmpty)
                     Text(
                       _history,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                         color: theme.colorScheme.onSurfaceVariant,
-                      ),
-                      textAlign: TextAlign.end,
-                    ),
-
-                  const SizedBox(height: 5),
-
-                  if (_currentCalculation.isNotEmpty)
-                    Text(
-                      _currentCalculation,
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: theme.colorScheme.onSurface,
-                        fontWeight: FontWeight.w500,
                       ),
                       textAlign: TextAlign.end,
                     ),
 
                   const SizedBox(height: 10),
 
+                  // Current Calculation Text
+                  if (_displayedCalculation.isNotEmpty)
+                    Text(
+                      _displayedCalculation,
+                      style: TextStyle(
+                        fontSize: 46,
+                        color: theme.colorScheme.onSurface,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.end,
+                    ),
+
+                  const SizedBox(height: 5),
+
+                  // Result Text
                   if (_result.isNotEmpty)
                     Text(
                       '= $_result',
                       style: TextStyle(
-                        fontSize: 36,
+                        fontSize: _isResultState ? 50 : 28,
                         color: operatorTextColor,
                         fontWeight: FontWeight.w500,
                       ),
                       textAlign: TextAlign.end,
                     ),
-
-                  Text(
-                    _input,
-                    style: TextStyle(
-                      fontSize: 52,
-                      color: theme.colorScheme.onSurface,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.end,
-                  ),
                 ],
               ),
             ),
