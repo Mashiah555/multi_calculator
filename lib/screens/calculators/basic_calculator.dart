@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:multi_calculator/l10n/generated/l10n.dart';
 
 class BasicCalculator extends ConsumerStatefulWidget {
   const BasicCalculator({super.key});
@@ -72,7 +71,7 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
         case '-':
           result = _num - num2;
           break;
-        case '*':
+        case 'x':
           result = _num * num2;
           break;
         case '/':
@@ -135,9 +134,8 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
     required Color textColor,
     required Color buttonColor,
     required VoidCallback onPressed,
+    bool isWideButton = false,
   }) {
-    bool isWideButton = text == '0';
-
     return Expanded(
       flex: isWideButton ? 2 : 1,
       child: Padding(
@@ -170,7 +168,6 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
     final displayColor = theme.colorScheme.surfaceContainer;
@@ -406,13 +403,6 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
                     child: Row(
                       children: [
                         _buildButton(
-                          text: '0',
-                          textColor: numberTextColor,
-                          buttonColor: numberButtonColor,
-                          onPressed: () => _onNumberPressed('0'),
-                        ),
-
-                        _buildButton(
                           text: '.',
                           textColor: numberTextColor,
                           buttonColor: numberButtonColor,
@@ -420,10 +410,18 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
                         ),
 
                         _buildButton(
+                          text: '0',
+                          textColor: numberTextColor,
+                          buttonColor: numberButtonColor,
+                          onPressed: () => _onNumberPressed('0'),
+                        ),
+
+                        _buildButton(
                           text: '=',
                           textColor: operatorTextColor,
                           buttonColor: operatorButtonColor,
                           onPressed: _onEqualsPressed,
+                          isWideButton: true,
                         ),
                       ],
                     ),
