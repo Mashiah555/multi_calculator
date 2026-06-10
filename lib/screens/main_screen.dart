@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:multi_calculator/l10n/generated/l10n.dart';
+import 'package:multi_calculator/screens/calculators/advanced_calculator.dart';
 import 'package:multi_calculator/screens/calculators/basic_calculator.dart';
 import 'package:multi_calculator/screens/settings_screen.dart';
 import 'package:multi_calculator/widgets/menu_sheet.dart';
@@ -85,7 +86,7 @@ class MainScreen extends ConsumerWidget {
         case 'basic':
           return const BasicCalculator();
         case 'advanced':
-          return const BasicCalculator();
+          return const AdvancedCalculator();
         default:
           return const BasicCalculator();
       }
