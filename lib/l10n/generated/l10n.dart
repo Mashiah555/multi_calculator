@@ -211,6 +211,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Temperature'**
   String get temperature;
+
+  /// The distance unit 'Meter'
+  ///
+  /// In en, this message translates to:
+  /// **'Meter'**
+  String get meter;
+
+  /// The distance unit 'Meter' code value
+  ///
+  /// In en, this message translates to:
+  /// **'m'**
+  String get meterCode;
+
+  /// The distance unit 'Kilometer'
+  ///
+  /// In en, this message translates to:
+  /// **'Kilometer'**
+  String get kilometer;
+
+  /// The distance unit 'Meter' code value
+  ///
+  /// In en, this message translates to:
+  /// **'km'**
+  String get kilometerCode;
+
+  /// The distance unit 'Centimeter'
+  ///
+  /// In en, this message translates to:
+  /// **'Centimeter'**
+  String get centimeter;
+
+  /// The distance unit 'Centimeter' code value
+  ///
+  /// In en, this message translates to:
+  /// **'cm'**
+  String get centimeterCode;
+
+  /// The distance unit 'Millimeter'
+  ///
+  /// In en, this message translates to:
+  /// **'Millimeter'**
+  String get millimeter;
+
+  /// The distance unit 'Millimeter' code value
+  ///
+  /// In en, this message translates to:
+  /// **'mm'**
+  String get millimeterCode;
+
+  /// The distance unit 'Mile'
+  ///
+  /// In en, this message translates to:
+  /// **'Mile'**
+  String get mile;
+
+  /// The distance unit 'Mile' code value
+  ///
+  /// In en, this message translates to:
+  /// **'mi'**
+  String get mileCode;
+
+  /// The distance unit 'Yard'
+  ///
+  /// In en, this message translates to:
+  /// **'Yard'**
+  String get yard;
+
+  /// The distance unit 'Yard' code value
+  ///
+  /// In en, this message translates to:
+  /// **'yd'**
+  String get yardCode;
+
+  /// The distance unit 'Foot'
+  ///
+  /// In en, this message translates to:
+  /// **'Foot'**
+  String get foot;
+
+  /// The distance unit 'Foot' code value
+  ///
+  /// In en, this message translates to:
+  /// **'ft'**
+  String get footCode;
+
+  /// The distance unit 'Inch'
+  ///
+  /// In en, this message translates to:
+  /// **'Inch'**
+  String get inch;
+
+  /// The distance unit 'Inch' code value
+  ///
+  /// In en, this message translates to:
+  /// **'in'**
+  String get inchCode;
+
+  /// The distance unit 'Light Year'
+  ///
+  /// In en, this message translates to:
+  /// **'Light Year'**
+  String get lightYear;
+
+  /// The distance unit 'Light Year' code value
+  ///
+  /// In en, this message translates to:
+  /// **'ly'**
+  String get lightYearCode;
 }
 
 class _AppLocalizationsDelegate

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:multi_calculator/l10n/generated/l10n.dart';
 import 'package:multi_calculator/screens/calculators/advanced_calculator.dart';
 import 'package:multi_calculator/screens/calculators/basic_calculator.dart';
+import 'package:multi_calculator/screens/calculators/length_converter.dart';
 import 'package:multi_calculator/screens/settings_screen.dart';
 import 'package:multi_calculator/widgets/menu_sheet.dart';
 
@@ -30,7 +31,7 @@ class MainScreen extends ConsumerWidget {
     final currentIndex = ref.watch(appNavIndexProvider);
 
     // The screens for each calculator.
-    final List<MenuItem> screens = [
+    final screens = [
       MenuItem(
         id: 'basic',
         title: l10n.calculator(l10n.basic),
@@ -87,6 +88,8 @@ class MainScreen extends ConsumerWidget {
           return const BasicCalculator();
         case 'advanced':
           return const AdvancedCalculator();
+        case 'length':
+          return const LengthConverter();
         default:
           return const BasicCalculator();
       }

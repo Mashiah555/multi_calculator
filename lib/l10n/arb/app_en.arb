@@ -90,5 +90,77 @@
     "temperature": "Temperature",
     "@temperature": {
         "description": "The adjective 'Temperature'"
+    },
+    "meter": "Meter",
+    "@meter": {
+        "description": "The distance unit 'Meter'"
+    },
+    "meterCode": "m",
+    "@meterCode": {
+        "description": "The distance unit 'Meter' code value"
+    },
+    "kilometer": "Kilometer",
+    "@kilometer": {
+        "description": "The distance unit 'Kilometer'"
+    },
+    "kilometerCode": "km",
+    "@kilometerCode": {
+        "description": "The distance unit 'Meter' code value"
+    },
+    "centimeter": "Centimeter",
+    "@centimeter": {
+        "description": "The distance unit 'Centimeter'"
+    },
+    "centimeterCode": "cm",
+    "@centimeterCode": {
+        "description": "The distance unit 'Centimeter' code value"
+    },
+    "millimeter": "Millimeter",
+    "@millimeter": {
+        "description": "The distance unit 'Millimeter'"
+    },
+    "millimeterCode": "mm",
+    "@millimeterCode": {
+        "description": "The distance unit 'Millimeter' code value"
+    },
+    "mile": "Mile",
+    "@mile": {
+        "description": "The distance unit 'Mile'"
+    },
+    "mileCode": "mi",
+    "@mileCode": {
+        "description": "The distance unit 'Mile' code value"
+    },
+    "yard": "Yard",
+    "@yard": {
+        "description": "The distance unit 'Yard'"
+    },
+    "yardCode": "yd",
+    "@yardCode": {
+        "description": "The distance unit 'Yard' code value"
+    },
+    "foot": "Foot",
+    "@foot": {
+        "description": "The distance unit 'Foot'"
+    },
+    "footCode": "ft",
+    "@footCode": {
+        "description": "The distance unit 'Foot' code value"
+    },
+    "inch": "Inch",
+    "@inch": {
+        "description": "The distance unit 'Inch'"
+    },
+    "inchCode": "in",
+    "@inchCode": {
+        "description": "The distance unit 'Inch' code value"
+    },
+    "lightYear": "Light Year",
+    "@lightYear": {
+        "description": "The distance unit 'Light Year'"
+    },
+    "lightYearCode": "ly",
+    "@lightYearCode": {
+        "description": "The distance unit 'Light Year' code value"
     }
 }

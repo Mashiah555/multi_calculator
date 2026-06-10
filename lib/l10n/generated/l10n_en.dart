@@ -68,4 +68,58 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get temperature => 'Temperature';
+
+  @override
+  String get meter => 'Meter';
+
+  @override
+  String get meterCode => 'm';
+
+  @override
+  String get kilometer => 'Kilometer';
+
+  @override
+  String get kilometerCode => 'km';
+
+  @override
+  String get centimeter => 'Centimeter';
+
+  @override
+  String get centimeterCode => 'cm';
+
+  @override
+  String get millimeter => 'Millimeter';
+
+  @override
+  String get millimeterCode => 'mm';
+
+  @override
+  String get mile => 'Mile';
+
+  @override
+  String get mileCode => 'mi';
+
+  @override
+  String get yard => 'Yard';
+
+  @override
+  String get yardCode => 'yd';
+
+  @override
+  String get foot => 'Foot';
+
+  @override
+  String get footCode => 'ft';
+
+  @override
+  String get inch => 'Inch';
+
+  @override
+  String get inchCode => 'in';
+
+  @override
+  String get lightYear => 'Light Year';
+
+  @override
+  String get lightYearCode => 'ly';
 }
