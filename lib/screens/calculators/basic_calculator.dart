@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 
 class BasicCalculator extends ConsumerStatefulWidget {
   const BasicCalculator({super.key});
@@ -9,6 +10,7 @@ class BasicCalculator extends ConsumerStatefulWidget {
 }
 
 class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
+  final formatter = NumberFormat.decimalPattern();
   String _input = '0';
   String _result = '';
   String _operator = '';
@@ -37,9 +39,9 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
       }
 
       if (_operator.isNotEmpty) {
-        _displayedCalculation = '${_num.toString()} $_operator $_input';
+        _displayedCalculation = '${formatter.format(_num)} $_operator $_input';
         _result =
-            _calculateResult(num2: double.parse(number))?.toString() ?? 'Error';
+            _calculateResult(num2: double.parse(_input))?.toString() ?? 'Error';
       }
     });
   }
@@ -56,7 +58,7 @@ class _BasicCalculatorState extends ConsumerState<BasicCalculator> {
       _operator = operation;
       _isOperationPressed = true;
 
-      _displayedCalculation = '${_num.toString()} $operation';
+      _displayedCalculation = '${formatter.format(_num)} $operation';
     });
   }
 
